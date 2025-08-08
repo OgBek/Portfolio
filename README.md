@@ -70,7 +70,7 @@ portfolio/
 ├── tailwind.config.js        # Tailwind CSS configuration
 └── tsconfig.json             # TypeScript configuration
 
----
+
 
 # 📦 Installation & Setup
 
@@ -96,8 +96,8 @@ npm run dev
 
 🔧 Build for Production
 npm run build
-```
 
+---
 ## Available Scripts
 
 In the project directory, you can run:
