@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiGithub, FiExternalLink, FiFilter } from 'react-icons/fi';
+import schoolImage from '../assets/school.png';
+import libraryImage from '../assets/library.png';
+import fleetImage from '../assets/fleet.png';
+import portfolio from '../assets/portfolio.png';
 
 // Project data with more detailed information
 const projects = [
@@ -9,7 +13,7 @@ const projects = [
     title: 'Fleet Management system',
     description: 'A vehicle fleet management system with real-time updates.',
     tags: ['Laravel', 'Mysql', 'vite','blade', 'Tailwind CSS'],
-    image: '/src/assets/fleet.png',
+    image: fleetImage,
     github: 'https://github.com/OgBek/FLEET-MANAGEMENT',
     live: 'https://github.com/OgBek/FLEET-MANAGEMENT',
     category: 'fullstack',
@@ -20,7 +24,7 @@ const projects = [
     title: 'simple library system',
     description: 'A modern simple crud library system.',
     tags: ['React','typescript' ,'MariaDB', 'Frappe', 'Tailwind CSS'],
-    image: '/src/assets/library.png',
+    image: libraryImage,
     github: 'https://github.com/OgBek/library-management-system',
     live: 'https://drive.google.com/file/d/1iK130zZISPzUHcZNDvLBimLcVUaMolHU/view?usp=drive_link',
     category: 'backend',
@@ -31,7 +35,7 @@ const projects = [
     title: 'portifolio Website',
     description: 'A modern portfolio website with 3D elements and smooth animations.',
     tags: ['React', 'Three.js', 'React Three Fiber', 'Tailwind CSS', 'Framer Motion'],
-    image: '/src/assets/portfolio.png',
+    image: fleetImage',
     github: 'https://github.com/yourusername/portfolio',
     live: 'https://yourportfolio.com',
     category: 'frontend',
@@ -42,7 +46,7 @@ const projects = [
     title: 'School managment system',
     description: 'A full-stack school managment system with user authentication, course management, and  payment integration',
     tags: ['Laravel', 'PHP', 'Xampp', 'AdminLte templet', 'spatie','sanctum'],
-    image: '/src/assets/school.png',
+    image: schoolImage',
     github: 'https://github.com/OgBek/school-managment-system-laravel-11',
     live: 'https://github.com/OgBek/school-managment-system-laravel-11',
     category: 'fullstack',
