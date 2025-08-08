@@ -4,36 +4,31 @@ import { useForm } from '@formspree/react';
 import { FiMail, FiPhone, FiMapPin, FiSend, FiLinkedin, FiGithub, FiCheckCircle, FiAlertTriangle } from 'react-icons/fi';
 import { FaTelegramPlane } from 'react-icons/fa';
 
-type FormData = {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-};
-
 const Contact = () => {
-  // Replace 'yourFormspreeFormId' with your real Formspree form ID
- const [state, handleSubmit] = useForm(import.meta.env.VITE_FORMSPREE_ID as string);
+  const [state, handleSubmit] = useForm(import.meta.env.VITE_FORMSPREE_ID as string);
   const formRef = useRef<HTMLFormElement>(null);
+
+  const [localSubmitting, setLocalSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [showError, setShowError] = useState(false);
 
+  // Watch Formspree state.succeeded to handle success
   useEffect(() => {
-    if (state.succeeded) {
-      formRef.current?.reset();
-      setShowSuccess(true);
-      const timer = setTimeout(() => setShowSuccess(false), 5000); // Hide after 5 seconds
-      return () => clearTimeout(timer);
+    if (state.submitting) {
+      setLocalSubmitting(true);
+    } else {
+      setLocalSubmitting(false);
+      if (state.succeeded) {
+        setShowSuccess(true);
+        formRef.current?.reset();
+        setTimeout(() => setShowSuccess(false), 5000);
+      }
+    if (Array.isArray(state.errors) && state.errors.length > 0) {
+        setShowError(true);
+        setTimeout(() => setShowError(false), 5000);
+      }
     }
-  }, [state.succeeded]);
-
-  useEffect(() => {
-    if (state.errors) {
-      setShowError(true);
-      const timer = setTimeout(() => setShowError(false), 5000); // Hide after 5 seconds
-      return () => clearTimeout(timer);
-    }
-  }, [state.errors]);
+  }, [state.submitting, state.succeeded, state.errors]);
 
   const contactInfo = [
     {
@@ -41,44 +36,44 @@ const Contact = () => {
       title: 'Email Me',
       value: 'bbekam60@gmail.com',
       href: 'https://mail.google.com/mail/?view=cm&to=bbekam60@gmail.com',
-      external: true
+      external: true,
     },
     {
       icon: <FiPhone className="w-6 h-6 text-primary-500" />,
       title: 'Call Me',
       value: '+251972728887',
-      href: 'tel:+251972728887'
+      href: 'tel:+251972728887',
     },
     {
       icon: <FiMapPin className="w-6 h-6 text-primary-500" />,
       title: 'Location',
       value: 'Addis Ababa, Ethiopia',
-      href: 'https://maps.google.com'
-    }
+      href: 'https://maps.google.com',
+    },
   ];
 
   const socialLinks = [
     {
       name: 'GitHub',
       icon: <FiGithub className="w-5 h-5" />,
-      url: 'https://github.com/OgBek'
+      url: 'https://github.com/OgBek',
     },
     {
       name: 'LinkedIn',
       icon: <FiLinkedin className="w-5 h-5" />,
-      url: 'https://linkedin.com/in/bekam-beyene'
+      url: 'https://linkedin.com/in/bekam-beyene',
     },
     {
       name: 'Telegram',
       icon: <FaTelegramPlane className="w-5 h-5" />,
-      url: 'https://t.me/Ur_Og'
+      url: 'https://t.me/Ur_Og',
     },
     {
       name: 'Email',
       icon: <FiMail className="w-5 h-5" />,
       url: 'https://mail.google.com/mail/?view=cm&to=bbekam60@gmail.com',
-      external: true
-    }
+      external: true,
+    },
   ];
 
   return (
@@ -94,7 +89,7 @@ const Contact = () => {
             strokeWidth="2"
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
+            transition={{ duration: 1.5, ease: 'easeInOut' }}
           />
         </svg>
       </div>
@@ -117,12 +112,7 @@ const Contact = () => {
 
       <div className="relative max-w-7xl mx-auto z-10">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-center mb-16">
           <h1 className="text-4xl font-bold mb-4">Get In Touch</h1>
           <div className="w-20 h-1 bg-primary-500 mx-auto mb-8"></div>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -132,29 +122,22 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
+          <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
             <h2 className="text-2xl font-bold mb-8 dark:text-white">Contact Information</h2>
-            
+
             <div className="space-y-6 mb-12">
               {contactInfo.map((item, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   className="flex items-start space-x-4 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow"
                   whileHover={{ x: 5 }}
                 >
-                  <div className="p-2 bg-primary-50 dark:bg-gray-700 rounded-lg">
-                    {item.icon}
-                  </div>
+                  <div className="p-2 bg-primary-50 dark:bg-gray-700 rounded-lg">{item.icon}</div>
                   <div>
                     <h3 className="font-medium text-gray-700 dark:text-gray-300">{item.title}</h3>
-                    <a 
-                      href={item.href} 
-                      target="_blank" 
+                    <a
+                      href={item.href}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
                     >
@@ -187,20 +170,16 @@ const Contact = () => {
           </motion.div>
 
           {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
+          <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}>
             <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl">
               <h2 className="text-2xl font-bold mb-6 dark:text-white">Send Me a Message</h2>
-              
 
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      Name
+                    </label>
                     <input
                       type="text"
                       id="name"
@@ -211,7 +190,9 @@ const Contact = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      Email
+                    </label>
                     <input
                       type="email"
                       id="email"
@@ -223,7 +204,9 @@ const Contact = () => {
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Subject</label>
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Subject
+                  </label>
                   <input
                     type="text"
                     id="subject"
@@ -234,7 +217,9 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Message
+                  </label>
                   <textarea
                     id="message"
                     name="message"
@@ -247,9 +232,9 @@ const Contact = () => {
                 <button
                   type="submit"
                   className="w-full py-3 px-6 bg-primary-500 text-white font-semibold rounded-lg shadow-md hover:bg-primary-600 dark:hover:bg-primary-600 transition-colors flex items-center justify-center gap-2 text-lg"
-                  disabled={state.submitting}
+                  disabled={localSubmitting}
                 >
-                  {state.submitting ? (
+                  {localSubmitting ? (
                     <>
                       <FiSend className="w-5 h-5 animate-spin" /> Sending...
                     </>
@@ -289,7 +274,7 @@ const Contact = () => {
         </div>
 
         {/* Map */}
-        <motion.div 
+        <motion.div
           className="mt-20 bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
