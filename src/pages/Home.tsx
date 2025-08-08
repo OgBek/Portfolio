@@ -18,7 +18,7 @@ interface TypeWriterProps {
   delay?: number;
 }
 
-const TypeWriter: React.FC<TypeWriterProps> = ({ 
+const _TypeWriter: React.FC<TypeWriterProps> = ({ 
   texts, 
   speed = 100, 
   deleteSpeed = 50, 
