@@ -51,7 +51,7 @@ module.exports = {
       transform: ['hover', 'active'],
     },
   },
-  darkMode: 'class',
+  
   plugins: [
     require('@tailwindcss/forms'),
   ],
