@@ -33,7 +33,8 @@ This project highlights my work, skills, and professional background while deliv
 - **Forms**: Formspree
 - **Assets**: SVG graphics, optimized images
 
---- **
+---
+**
 This project is built with a modern, robust tech stack:
 
 - **Frontend:**
@@ -49,7 +50,6 @@ This project is built with a modern, robust tech stack:
   - [Formspree](https://formspree.io/) for the contact form
 - **Icons:**
   - [React Icons](https://react-icons.github.io/react-icons/)
-
 **
 ---
 ## 📂 Project Structure
@@ -69,7 +69,7 @@ portfolio/
 
 ---
 
-📦 Installation & Setup
+# 📦 Installation & Setup
 
 
 
