@@ -53,6 +53,26 @@ This project is built with a modern, robust tech stack:
 **
 ---
 ## 📂 Project Structure
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 portfolio/
 ├── public/                   # Static assets (favicon, robots.txt, etc.)
 ├── src/
@@ -66,6 +86,48 @@ portfolio/
 ├── vite.config.ts            # Vite configuration
 ├── tailwind.config.js        # Tailwind CSS configuration
 └── tsconfig.json             # TypeScript configuration
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
 
