@@ -1,4 +1,4 @@
-import React from 'react';
+import _React from 'react';
 import { motion } from 'framer-motion';
 import { FiAward, FiBriefcase, FiCode } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
