@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import _React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useForm } from '@formspree/react';
 import { FiMail, FiPhone, FiMapPin, FiSend, FiLinkedin, FiGithub, FiCheckCircle, FiAlertTriangle } from 'react-icons/fi';
