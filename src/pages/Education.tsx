@@ -1,4 +1,4 @@
-import React from 'react';
+import _React from 'react';
 import { motion } from 'framer-motion';
 import { FiDownload, FiAward, FiBookOpen, FiExternalLink } from 'react-icons/fi';
 import cvFile from '../assets/bekam-beyene-cv.pdf';
