@@ -4,16 +4,9 @@ import { useForm } from '@formspree/react';
 import { FiMail, FiPhone, FiMapPin, FiSend, FiLinkedin, FiGithub, FiCheckCircle, FiAlertTriangle } from 'react-icons/fi';
 import { FaTelegramPlane } from 'react-icons/fa';
 
-type FormData = {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-};
-
 const Contact = () => {
-  // Replace 'yourFormspreeFormId' with your real Formspree form ID
-  const [state, handleSubmit] = useForm(import.meta.env.VITE_FORMSPREE_ID as string);
+  // Add reset to the tuple returned by useForm
+  const [state, handleSubmit, reset] = useForm(import.meta.env.VITE_FORMSPREE_ID as string);
   const formRef = useRef<HTMLFormElement>(null);
   const [showSuccess, setShowSuccess] = useState(false);
   const [showError, setShowError] = useState(false);
@@ -22,13 +15,16 @@ const Contact = () => {
     if (state.succeeded) {
       formRef.current?.reset();
       setShowSuccess(true);
-      const timer = setTimeout(() => setShowSuccess(false), 5000); // Hide after 5 seconds
+      const timer = setTimeout(() => {
+        setShowSuccess(false);
+        reset();  // Reset Formspree internal state so next submit works correctly
+      }, 5000); // Hide after 5 seconds
       return () => clearTimeout(timer);
     }
-  }, [state.succeeded]);
+  }, [state.succeeded, reset]);
 
   useEffect(() => {
-    if (state.errors) {
+    if (state.errors && state.errors.length > 0) {
       setShowError(true);
       const timer = setTimeout(() => setShowError(false), 5000); // Hide after 5 seconds
       return () => clearTimeout(timer);
@@ -196,7 +192,6 @@ const Contact = () => {
             <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl">
               <h2 className="text-2xl font-bold mb-6 dark:text-white">Send Me a Message</h2>
               
-
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
