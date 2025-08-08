@@ -52,27 +52,10 @@ This project is built with a modern, robust tech stack:
   - [React Icons](https://react-icons.github.io/react-icons/)
 **
 ---
+
 ## 📂 Project Structure
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```text
 portfolio/
 ├── public/                   # Static assets (favicon, robots.txt, etc.)
 ├── src/
@@ -86,48 +69,6 @@ portfolio/
 ├── vite.config.ts            # Vite configuration
 ├── tailwind.config.js        # Tailwind CSS configuration
 └── tsconfig.json             # TypeScript configuration
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ---
 
