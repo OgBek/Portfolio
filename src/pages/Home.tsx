@@ -5,6 +5,9 @@ import { FiArrowRight, FiMail, FiGithub, FiLinkedin, FiCode, FiDribbble } from '
 import { TypeAnimation } from 'react-type-animation';
 import { FaTelegramPlane } from 'react-icons/fa';
 import profilePhoto from '../assets/pro3.jpg';
+import schoolImage from '../assets/school.png';
+import libraryImage from '../assets/library.png';
+import fleetImage from '../assets/fleet.png';
 
 
 // TypeWriter Component
@@ -895,7 +898,7 @@ const Home = () => {
                   title: 'school managment system',
                   description: 'A full-stack school managment system with user authentication, course management',
                    tags: ['Laravel', 'PHP', 'Xampp', 'AdminLte templet', 'spatie','sanctum'],
-                   image: '/src/assets/school.png',
+                   image:schoolImage,
                   link: 'https://github.com/OgBek/school-managment-system-laravel-11'
                 },
                 {
@@ -903,7 +906,7 @@ const Home = () => {
                   title: 'simple library system',
                   description: 'A modern simple crud library system.',
                   tags: ['React', 'MariaDB', 'Frappe', 'Tailwind CSS'],
-                  image: '/src/assets/library.png',
+                  image: libraryImage,
                   link: 'https://drive.google.com/file/d/1iK130zZISPzUHcZNDvLBimLcVUaMolHU/view?usp=drive_link'
                 },
                 {
@@ -911,7 +914,7 @@ const Home = () => {
                   title: 'Fleet Management system',
                   description: 'A vehicle fleet management system with real-time updates.',
                   tags: ['Laravel', 'Mysql', 'blade', 'Tailwind CSS'],
-                  image: '/src/assets/fleet.png',
+                  image: fleetImage,
                   link: 'https://github.com/OgBek/FLEET-MANAGEMENT'
                 }
               ].map((project, index) => (
