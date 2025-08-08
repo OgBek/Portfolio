@@ -77,7 +77,13 @@ portfolio/
 git clone https://github.com/OgBek/portfolio.git
 
 2️⃣ Navigate to the project
-cd portfolio     and   "VITE_FORMSPREE_ID= your_formspree_id"  add this code to your .env file before proceeding , 
+```bash
+cd portfolio
+```
+> **Note:** Add your Formspree ID to a `.env` file as follows before running:
+> ```
+> VITE_FORMSPREE_ID=your_formspree_id_here
+> ```
 
  3️⃣ Install dependencies
 npm install
