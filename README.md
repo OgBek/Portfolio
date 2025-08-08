@@ -51,7 +51,7 @@ This project is built with a modern, robust tech stack:
   - [React Icons](https://react-icons.github.io/react-icons/)
 
 **
-
+---
 ## 📂 Project Structure
 portfolio/
 ├── public/                   # Static assets (favicon, robots.txt, etc.)
@@ -67,7 +67,7 @@ portfolio/
 ├── tailwind.config.js        # Tailwind CSS configuration
 └── tsconfig.json           # TypeScript configuration
 
-
+---
 
 📦 Installation & Setup
 
