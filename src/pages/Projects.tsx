@@ -36,8 +36,8 @@ const projects = [
     description: 'A modern portfolio website with 3D elements and smooth animations.',
     tags: ['React', 'Three.js', 'React Three Fiber', 'Tailwind CSS', 'Framer Motion'],
     image:portfolio,
-    github: 'https://github.com/yourusername/portfolio',
-    live: 'https://yourportfolio.com',
+    github: 'https://github.com/OgBek/Portfolio',
+    live: 'https://bekam-beyene.vercel.app/',
     category: 'frontend',
     featured: true
   },
