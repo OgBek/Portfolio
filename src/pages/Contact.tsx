@@ -13,7 +13,7 @@ type FormData = {
 
 const Contact = () => {
   // Replace 'yourFormspreeFormId' with your real Formspree form ID
-  const [state, handleSubmit] = useForm('xovlkgdy');
+  const [state, handleSubmit] = useForm(import.meta.env.VITE_FORMSPREE_ID as string);
   const formRef = useRef<HTMLFormElement>(null);
   const [showSuccess, setShowSuccess] = useState(false);
   const [showError, setShowError] = useState(false);
