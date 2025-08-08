@@ -6,12 +6,7 @@ This project highlights my work, skills, and professional background while deliv
 ---
 
 ## 🚀 Live Demo
-[https://your-portfolio-url.com](https://your-portfolio-url.com)
-
----
-
-## 📸 Screenshots
-*(Add your screenshots here)*
+[[https://your-portfolio-url.com](https://your-portfolio-url.com)](https://bekam-beyene.vercel.app/)
 
 ---
 
