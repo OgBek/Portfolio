@@ -16,36 +16,33 @@ export const Navbar: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      setScrolled(globalThis.scrollY > 10);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    globalThis.addEventListener('scroll', handleScroll);
+    return () => globalThis.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const location = useLocation();
+  const toggleMenu = () => setIsOpen(!isOpen);
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header 
+    <header
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md py-2' 
+        scrolled
+          ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md py-2'
           : 'bg-transparent py-4'
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-blue-400 bg-clip-text text-transparent"
           >
             Portfolio
@@ -72,7 +69,7 @@ export const Navbar: React.FC = () => {
                     transition={{
                       type: 'spring',
                       bounce: 0.2,
-                      duration: 0.6
+                      duration: 0.6,
                     }}
                   />
                 )}
@@ -87,7 +84,7 @@ export const Navbar: React.FC = () => {
             </button>
           </nav>
 
-          {/* Mobile menu button */}
+          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleTheme}
