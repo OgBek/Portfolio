@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import _React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FiGithub, FiExternalLink, FiFilter } from 'react-icons/fi';
+import { FiGithub, FiExternalLink } from 'react-icons/fi';
 import schoolImage from '../assets/school.png';
 import libraryImage from '../assets/library.png';
 import fleetImage from '../assets/fleet.png';
@@ -180,7 +180,7 @@ const Projects = () => {
           transition={{ duration: 0.5, ease: 'easeInOut' }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {currentProjects.map((project, index) => (
+          {currentProjects.map((project, _index) => (
             <motion.div
               key={project.id}
               whileHover={{ y: -5 }}
