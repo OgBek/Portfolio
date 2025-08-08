@@ -70,11 +70,13 @@ portfolio/
 
 📦 Installation & Setup
 
+
+
 # 1️⃣ Clone the repository
 git clone https://github.com/OgBek/portfolio.git
 
 # 2️⃣ Navigate to the project
-cd portfolio
+cd portfolio     and   "VITE_FORMSPREE_ID= your_formspree_id"  add this code to your .env file before proceeding , 
 
 # 3️⃣ Install dependencies
 npm install
