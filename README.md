@@ -56,16 +56,16 @@ This project is built with a modern, robust tech stack:
 portfolio/
 ├── public/                   # Static assets (favicon, robots.txt, etc.)
 ├── src/
-│ ├── components/            # Reusable UI components
-│ ├── contexts/              # React Context providers (e.g., theme)
-│ ├── pages/                # Page components (Home, About, Projects, Contact, etc.)
-│ ├── styles/               # Tailwind CSS and other styles
-│ ├── App.tsx            # Root app component
-│ └── main.tsx             # Application entry point
-├── package.json            # Project metadata and dependencies
-├── vite.config.ts           # Vite configuration
+│   ├── components/           # Reusable UI components
+│   ├── contexts/             # React Context providers (e.g., theme)
+│   ├── pages/                # Page components (Home, About, Projects, Contact, etc.)
+│   ├── styles/               # Tailwind CSS and other styles
+│   ├── App.tsx               # Root app component
+│   └── main.tsx              # Application entry point
+├── package.json              # Project metadata and dependencies
+├── vite.config.ts            # Vite configuration
 ├── tailwind.config.js        # Tailwind CSS configuration
-└── tsconfig.json           # TypeScript configuration
+└── tsconfig.json             # TypeScript configuration
 
 ---
 
