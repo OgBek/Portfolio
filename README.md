@@ -55,7 +55,6 @@ This project is built with a modern, robust tech stack:
 ## 📂 Project Structure
 portfolio/
 │── public/           # Static assets (favicon, etc.)
-
 │── src/
 │   ├── components/   # Reusable UI components
 │   ├── pages/        # Page-level components (Home, About, Projects, etc.)
